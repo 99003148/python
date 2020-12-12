@@ -1,0 +1,73 @@
+import time
+import datetime
+import re
+print(re.match("[A-Z]+_[A-Z]+", "TIMEDOWN_COUNTER"))
+supported_formats = ["hrs", "min", "sec"]
+print("\n")
+
+
+class eg:
+    def __init__(self, x):
+        self.x = x
+
+    def countdown_timer(self):
+        while self.x >= 0:
+            self.x -= 1
+            print("{} remain".format(str(datetime.timedelta(seconds=self.x))))
+            print("\n")
+            time.sleep(1)
+
+
+class eg2:
+    def __init__(self):
+        self.sec = self.sec = input("format:{}:".format(supported_formats))
+
+
+class eg3(eg2):
+    def timer(self):
+
+        if self.sec in supported_formats:
+            pass
+        else:
+            print("Invalid")
+            quit()
+
+
+class eg4(eg2):
+    def IOTimer(self):
+        try:
+            if self.sec == "hrs":
+                hours = int(input("Enter the number of hours: "))
+                print("\n")
+                minutes = int(input("Enter the number of minutes: "))
+                print("\n")
+                seconds = int(input("Enter the number of seconds: "))
+                print("\n")
+            elif self.sec == "min":
+                hours = 0
+                minutes = int(input("Enter the number of minutes: "))
+                print("\n")
+                seconds = int(input("Enter the number of seconds: "))
+                print("\n")
+            elif self.sec == "sec":
+                hours = 0
+                minutes = 0
+                seconds = int(input("Enter the number of seconds: "))
+                print("\n")
+
+        except:
+            print("Invalid")
+
+        hours_in_sec = hours*3600
+        minutes_in_sec = minutes*60
+        total_seconds = hours_in_sec + minutes_in_sec + seconds
+        print("{}".format(str(datetime.timedelta(seconds=total_seconds))))
+        print("\n")
+        time.sleep(2)
+
+        var = eg(total_seconds)
+        var.countdown_timer()
+
+
+s1 = eg4()
+s1.IOTimer()
