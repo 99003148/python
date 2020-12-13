@@ -1,0 +1,73 @@
+# importing the time and datetime
+import time
+import datetime
+supported_formats = ["hrs", "min", "sec"]
+# supported formats to give input
+print("\n")
+
+
+def get_input():
+    global unit_input
+    unit_input = input("format:{}:".format(supported_formats))
+    unit_input.lower()
+    # this takes input as lower only
+get_input()
+if unit_input in supported_formats:
+    pass
+else:
+    print("Invalid")
+    get_input()
+    # if input is not in supported formats again it will take
+
+
+def countdown_timer(x):
+    while x >= 0:
+        x -= 1
+        # reduces the time by 1 sec
+        print("{} remaining".format(str(datetime.timedelta(seconds=x))))
+        print("\n")
+        time.sleep(1)
+
+
+def IOTimer():
+    while True:
+        try:
+            if unit_input == "hrs":
+                hours = int(input("Enter the number of hours: "))
+                print("\n")
+                minutes = int(input("Enter the number of minutes: "))
+                print("\n")
+                seconds = int(input("Enter the number of seconds: "))
+                # taking the input to countdown
+                print("\n")
+                break
+            elif unit_input == "min":
+                hours = 0
+                minutes = int(input("Enter the number of minutes: "))
+                print("\n")
+                seconds = int(input("Enter the number of seconds: "))
+                # taking the input to countdown
+                print("\n")
+                break
+            elif unit_input == "sec":
+                hours = 0
+                minutes = 0
+                seconds = int(input("Enter the number of seconds: "))
+                # taking the input to countdown
+                print("\n")
+                break
+        except:
+            print("Invalid Input.Re-enter the values")
+            print("\n")
+            IOTimer()
+    hours_in_sec = hours*3600
+    # converting hours into sec
+    minutes_in_sec = minutes*60
+    # converting minutes into sec
+    total_seconds = hours_in_sec + minutes_in_sec + seconds
+    print("{}".format(str(datetime.timedelta(seconds=total_seconds))))
+    print("\n")
+    time.sleep(2)
+    # just for the time gap
+    countdown_timer(total_seconds)
+IOTimer()
