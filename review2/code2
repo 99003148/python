@@ -1,11 +1,15 @@
+# importing the time and datetime and regular expressions
 import time
 import datetime
 import re
 print(re.match("[A-Z]+_[A-Z]+", "TIMEDOWN_COUNTER"))
+# matches the timedown counter
 supported_formats = ["hrs", "min", "sec"]
+# supported formats to give input
 print("\n")
 
 
+# creating the class
 class eg:
     def __init__(self, x):
         self.x = x
@@ -13,7 +17,10 @@ class eg:
     def countdown_timer(self):
         while self.x >= 0:
             self.x -= 1
+            # reduces the time by 1 sec
             print("{} remain".format(str(datetime.timedelta(seconds=self.x))))
+            unit_input.lower()
+            # this takes input as lower only
             print("\n")
             time.sleep(1)
 
@@ -24,6 +31,7 @@ class eg2:
 
 
 class eg3(eg2):
+    # inheriting class from eg2 to eg3
     def timer(self):
 
         if self.sec in supported_formats:
@@ -34,6 +42,7 @@ class eg3(eg2):
 
 
 class eg4(eg2):
+    # inheriting class from eg2 to eg3
     def IOTimer(self):
         try:
             if self.sec == "hrs":
@@ -42,17 +51,20 @@ class eg4(eg2):
                 minutes = int(input("Enter the number of minutes: "))
                 print("\n")
                 seconds = int(input("Enter the number of seconds: "))
+                # taking the input to countdown
                 print("\n")
             elif self.sec == "min":
                 hours = 0
                 minutes = int(input("Enter the number of minutes: "))
                 print("\n")
                 seconds = int(input("Enter the number of seconds: "))
+                # taking the input to countdown
                 print("\n")
             elif self.sec == "sec":
                 hours = 0
                 minutes = 0
                 seconds = int(input("Enter the number of seconds: "))
+                # taking the input to countdown
                 print("\n")
 
         except:
@@ -67,6 +79,7 @@ class eg4(eg2):
 
         var = eg(total_seconds)
         var.countdown_timer()
+        # calling the methods
 
 
 s1 = eg4()
